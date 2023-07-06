@@ -4,6 +4,9 @@
   "description": "Random Quran Quotes",
   "manifest_version": 3,
   "author": "Mohammad Rakibul Islam",
+  "chrome_url_overrides": {
+    "newtab": "popup.html"
+  },
   "action":{
     "default_popup": "popup.html",
     "default_title": "Random Quran Quotes"

@@ -20,4 +20,6 @@ btnNextQuotes.addEventListener("click", () => {
     displayRandomVerses();
 });
 
+//chrome.tabs.onCreated.addListener(function callback)
+
 

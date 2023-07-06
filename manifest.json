@@ -1,0 +1,11 @@
+{
+  "name": "Quran Quotes",
+  "version": "1.0.0",
+  "description": "Random Quran Quotes",
+  "manifest_version": 3,
+  "author": "Mohammad Rakibul Islam",
+  "action":{
+    "default_popup": "popup.html",
+    "default_title": "Random Quran Quotes"
+  }
+}

@@ -6,11 +6,9 @@
     <style>
         * {box-sizing: border-box}
         body {
-            font-family: Verdana,
-            sans-serif; margin:0;
-            background-image: url("img/islamic_pattern.jpg");
-            /*background-repeat: no-repeat;*/
-            background-size: 70%;
+            background-image: url("img/pattern1.jpeg");
+            flex-grow: 1;
+            background-color: #bbbbbb;
         }
 
         .slideshow-container {
@@ -18,7 +16,7 @@
             /*background: #f1f1f1f1;*/
 
             /*background-color: #cccccc;*/
-            color: #000000;
+            color: darkseagreen;
         }
 
         .mySlides {
@@ -76,12 +74,15 @@
         q {font-style: italic;}
 
         .info {
-            color: cornflowerblue;
-            font-size: medium;
+            color: #bdbebf;
+            font-size: large;
+            font-style: italic;
         }
 
         .heading {
             text-align: center;
+            color: #e5e4e4;
+            font-style: italic;
         }
 
         .arabic {
@@ -96,11 +97,11 @@
         .quote {
             padding: 5px;
             text-align: center;
-            font-size: xxx-large;
+            font-size: xx-large;
         }
 
         .button {
-            background-color: #4CAF50;
+            background-color: gray;
             border: none;
             color: white;
             padding: 15px 32px;
@@ -110,6 +111,13 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            border-radius: 30px;
+        }
+
+        #next-quotes {
+            position: absolute;
+            right: 20px;
+            top: 15px;
         }
 
         @font-face {
@@ -122,8 +130,9 @@
     </style>
 </head>
 <body>
-
+<div class="overlay">
 <h1 class="heading">Al-Quran Quotes</h1>
+<button class="button" id="next-quotes">Next Quotes</button>
 <div class="slideshow-container" style="min-width: 600px;">
 
     <div class="mySlides" id="slide-1">
@@ -158,9 +167,8 @@
     <span class="dot" data-val="1"></span>
     <span class="dot" data-val="2"></span>
     <span class="dot" data-val="3"></span>
-    <button class="button" id="next-quotes">Next Quotes</button>
 </div>
-
+</div>
 <script type="text/javascript" src="slider.js"></script>
 <script type="text/javascript" src="quran-verse.js"></script>
 <script type="text/javascript" src="script.js"></script>

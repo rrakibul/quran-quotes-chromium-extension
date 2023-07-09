@@ -19,7 +19,7 @@
 
         .mySlides {
             display: none;
-            padding: 20px 50px;
+            padding: 20px 100px;
             text-align: center;
         }
 
@@ -44,8 +44,9 @@
         }
 
         .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
+            background-color: red;
             color: white;
+            opacity: 25%;
         }
 
         .dot-container {
@@ -81,6 +82,7 @@
             text-align: center;
             color: #e5e4e4;
             font-style: italic;
+            margin-top: 30px;
         }
 
         .arabic {
@@ -99,17 +101,19 @@
         }
 
         .button {
-            background-color: gray;
+            background-color: red;
             border: none;
-            color: white;
-            padding: 15px 32px;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 15px 15px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: medium;
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 30px;
+            opacity: 25%;
         }
 
         #loader {
@@ -137,49 +141,46 @@
     </style>
 </head>
 <body>
-<div class="overlay">
-<h1 class="heading">Al-Quran Quotes</h1>
+<div style="min-width: 600px">
+    <h1 class="heading">AL-QURAN QUOTES</h1>
+    <button class="button" id="next-quotes">Next Quotes</button>
     <div class="dot-container">
         <span class="dot" data-val="1"></span>
         <span class="dot" data-val="2"></span>
         <span class="dot" data-val="3"></span>
     </div>
-<button class="button" id="next-quotes">Next Quotes</button>
+    <div class="slideshow-container" id="slideshow-container">
+        <div id="loader">
+            <img src="images/spinner.gif" alt="">
+        </div>
+        <div class="slides" id="slides">
+            <a class="prev" id="prev">❮</a>
+            <a class="next" id="next">❯</a>
+            <div class="mySlides" id="slide-1">
+                <div id="arabic-verse-1" class="arabic"></div>
+                <div class="quote">
+                    <q id="translate-verse-1"></q>
+                    <p class="info">- Chapter: <span id="chapter-no-1"></span>, Verse: <span id="verse-no-1"></span></p>
+                </div>
+            </div>
 
-<div class="slideshow-container" id="slideshow-container">
-    <div id="loader">
-        <img src="images/spinner.gif" alt="">
+            <div class="mySlides" id="slide-2">
+                <div id="arabic-verse-2" class="arabic"></div>
+                <div class="quote">
+                    <q id="translate-verse-2"></q>
+                    <p class="info">- Chapter: <span id="chapter-no-2"></span>, Verse: <span id="verse-no-2"></span></p>
+                </div>
+            </div>
+
+            <div class="mySlides" id="slide-3">
+                <div id="arabic-verse-3" class="arabic"></div>
+                <div class="quote">
+                    <q id="translate-verse-3"></q>
+                    <p class="info">- Chapter: <span id="chapter-no-3">1</span>, Verse: <span id="verse-no-3"></span></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="slides" id="slides">
-        <a class="prev" id="prev">❮</a>
-        <a class="next" id="next">❯</a>
-        <div class="mySlides" id="slide-1">
-            <div id="arabic-verse-1" class="arabic"></div>
-            <div class="quote">
-                <q id="translate-verse-1"></q>
-                <p class="info">- Chapter: <span id="chapter-no-1"></span>, Verse: <span id="verse-no-1"></span></p>
-            </div>
-        </div>
-
-        <div class="mySlides" id="slide-2">
-            <div id="arabic-verse-2" class="arabic"></div>
-            <div class="quote">
-                <q id="translate-verse-2"></q>
-                <p class="info">- Chapter: <span id="chapter-no-2"></span>, Verse: <span id="verse-no-2"></span></p>
-            </div>
-        </div>
-
-        <div class="mySlides" id="slide-3">
-            <div id="arabic-verse-3" class="arabic"></div>
-            <div class="quote">
-                <q id="translate-verse-3"></q>
-                <p class="info">- Chapter: <span id="chapter-no-3">1</span>, Verse: <span id="verse-no-3"></span></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 </div>
 <script type="text/javascript" src="slider.js"></script>
 <script type="text/javascript" src="quran-verse.js"></script>

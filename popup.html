@@ -6,16 +6,14 @@
     <style>
         * {box-sizing: border-box}
         body {
-            background-image: url("img/pattern1.jpeg");
+            background-image: url("images/pattern1.jpeg");
             flex-grow: 1;
             background-color: #bbbbbb;
         }
 
         .slideshow-container {
             position: relative;
-            /*background: #f1f1f1f1;*/
-
-            /*background-color: #cccccc;*/
+            /*min-width: 600px;*/
             color: darkseagreen;
         }
 
@@ -28,9 +26,9 @@
         .prev, .next {
             cursor: pointer;
             position: absolute;
-            top: 50%;
+            top: 50px;
             width: auto;
-            margin-top: -30px;
+            /*margin-top: -30px;*/
             padding: 16px;
             color: #888;
             font-weight: bold;
@@ -114,10 +112,19 @@
             border-radius: 30px;
         }
 
+        #loader {
+            text-align: center;
+            display: none;
+        }
+
         #next-quotes {
             position: absolute;
             right: 20px;
             top: 15px;
+        }
+
+        .slides {
+            display: none;
         }
 
         @font-face {
@@ -132,42 +139,47 @@
 <body>
 <div class="overlay">
 <h1 class="heading">Al-Quran Quotes</h1>
+    <div class="dot-container">
+        <span class="dot" data-val="1"></span>
+        <span class="dot" data-val="2"></span>
+        <span class="dot" data-val="3"></span>
+    </div>
 <button class="button" id="next-quotes">Next Quotes</button>
-<div class="slideshow-container" style="min-width: 600px;">
 
-    <div class="mySlides" id="slide-1">
-        <div id="arabic-verse-1" class="arabic"></div>
-        <div class="quote">
-            <q id="translate-verse-1"></q>
-            <p class="info">- Chapter: <span id="chapter-no-1"></span>, Verse: <span id="verse-no-1"></span></p>
+<div class="slideshow-container" id="slideshow-container">
+    <div id="loader">
+        <img src="images/spinner.gif" alt="">
+    </div>
+    <div class="slides" id="slides">
+        <a class="prev" id="prev">❮</a>
+        <a class="next" id="next">❯</a>
+        <div class="mySlides" id="slide-1">
+            <div id="arabic-verse-1" class="arabic"></div>
+            <div class="quote">
+                <q id="translate-verse-1"></q>
+                <p class="info">- Chapter: <span id="chapter-no-1"></span>, Verse: <span id="verse-no-1"></span></p>
+            </div>
+        </div>
+
+        <div class="mySlides" id="slide-2">
+            <div id="arabic-verse-2" class="arabic"></div>
+            <div class="quote">
+                <q id="translate-verse-2"></q>
+                <p class="info">- Chapter: <span id="chapter-no-2"></span>, Verse: <span id="verse-no-2"></span></p>
+            </div>
+        </div>
+
+        <div class="mySlides" id="slide-3">
+            <div id="arabic-verse-3" class="arabic"></div>
+            <div class="quote">
+                <q id="translate-verse-3"></q>
+                <p class="info">- Chapter: <span id="chapter-no-3">1</span>, Verse: <span id="verse-no-3"></span></p>
+            </div>
         </div>
     </div>
-
-    <div class="mySlides" id="slide-2">
-        <div id="arabic-verse-2" class="arabic"></div>
-        <div class="quote">
-            <q id="translate-verse-2"></q>
-            <p class="info">- Chapter: <span id="chapter-no-2"></span>, Verse: <span id="verse-no-2"></span></p>
-        </div>
-    </div>
-
-    <div class="mySlides" id="slide-3">
-        <div id="arabic-verse-3" class="arabic"></div>
-        <div class="quote">
-            <q id="translate-verse-3"></q>
-            <p class="info">- Chapter: <span id="chapter-no-3">1</span>, Verse: <span id="verse-no-3"></span></p>
-        </div>
-    </div>
-
-    <a class="prev" id="prev">❮</a>
-    <a class="next" id="next">❯</a>
 </div>
 
-<div class="dot-container">
-    <span class="dot" data-val="1"></span>
-    <span class="dot" data-val="2"></span>
-    <span class="dot" data-val="3"></span>
-</div>
+
 </div>
 <script type="text/javascript" src="slider.js"></script>
 <script type="text/javascript" src="quran-verse.js"></script>

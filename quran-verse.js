@@ -117,18 +117,39 @@ class QuranVerse {
         {ch: 114, vc: 6}
     ];
 
+    editionNames = [
+        { language: 'bengali', name: 'ben-muhiuddinkhan' },
+        { language: 'chinese-simplified', name: 'zho-majian' },
+        { language: 'chinese-traditional', name: 'zho-anonymousgroupo' },
+        { language: 'english', name: 'eng-abdelhaleem' },
+        { language: 'french', name: 'fra-islamicfoundati' },
+        { language: 'german', name: 'deu-aburidamuhammad' },
+        { language: 'hebrew', name: 'heb-darusalamhousei' },
+        { language: 'hindi', name: 'hin-maulanaazizulha' },
+        { language: 'italian', name: 'ita-hamzarobertopic' },
+        { language: 'japanese', name: 'jpn-ryoichimita' },
+        { language: 'malayalam', name: 'mal-abdulhameedmada' },
+        { language: 'russian', name: 'rus-abuadel' },
+        { language: 'turkish', name: 'tur-ademugur' },
+        { language: 'urdu', name: 'urd-abulaalamaududi' },
+    ];
+
+    translateEditionName = 'ben-muhiuddinkhan';
+
     options = {
         chapterInfo: this.chapterInfo,
         includeArabicVerse: true,
         verseCount: 3,//fetch number of sequential verses at a time
         arabicEditionName: 'ara-quranindopak',
-        translateEditionName: 'ben-muhiuddinkhan'
+        language: 'bengali',
     }
 
     constructor(config) {
         if (typeof config === "object") {
             this.options = {...this.options, ...config};
         }
+
+        this.translateEditionName = this.editionNames.find(item => item.language === this.options.language).name
     }
 
     async fetchData(index, randomChapterVerse) {
@@ -136,7 +157,7 @@ class QuranVerse {
         const strRandomChapterVerse = randomChapterVerse.chapter + '/' + randomVerse;
         let quotes = { translateQuote: null, arabicQuote: null };
 
-        const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.options.translateEditionName}/${strRandomChapterVerse}.json`);
+        const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.translateEditionName}/${strRandomChapterVerse}.json`);
         quotes.translateQuote = await response.json();
 
         if (this.options.includeArabicVerse) {

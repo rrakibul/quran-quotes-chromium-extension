@@ -10,5 +10,16 @@
   "action":{
     "default_popup": "popup.html",
     "default_title": "Random Quran Quotes"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }

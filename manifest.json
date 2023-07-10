@@ -1,14 +1,14 @@
 {
-  "name": "Quran Quotes",
+  "name": "Random Quran Quotes",
   "version": "1.0.0",
   "description": "Random Quran Quotes",
   "manifest_version": 3,
   "author": "Mohammad Rakibul Islam",
   "chrome_url_overrides": {
-    "newtab": "popup.html"
+    "newtab": "page/page.html"
   },
   "action":{
-    "default_popup": "popup.html",
+    "default_popup": "popup/popup.html",
     "default_title": "Random Quran Quotes"
   },
   "permissions": [
@@ -16,10 +16,10 @@
     "storage"
   ],
   "options_ui": {
-    "page": "options.html",
+    "page": "options/options.html",
     "open_in_tab": false
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "service-worker.js"
   }
 }

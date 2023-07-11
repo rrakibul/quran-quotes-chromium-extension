@@ -157,11 +157,11 @@ class QuranVerse {
         const strRandomChapterVerse = randomChapterVerse.chapter + '/' + randomVerse;
         let quotes = { translateQuote: null, arabicQuote: null };
 
-        const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.translateEditionName}/${strRandomChapterVerse}.json`);
+        const response = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.translateEditionName}/${strRandomChapterVerse}.min.json`);
         quotes.translateQuote = await response.json();
 
         if (this.options.includeArabicVerse) {
-            const arabicResponse = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.options.arabicEditionName}/${strRandomChapterVerse}.json`);
+            const arabicResponse = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${this.options.arabicEditionName}/${strRandomChapterVerse}.min.json`);
             quotes.arabicQuote = await arabicResponse.json();
         }
 

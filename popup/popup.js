@@ -1,8 +1,18 @@
+setPopupWidth();
+displayRandomVerses();
+
+let btnNextQuotes = document.getElementById("next-quotes");
+btnNextQuotes.addEventListener("click", () => {
+    currentSlide(1);
+    displayRandomVerses();
+});
+
+
 async function displayRandomVerses() {
     document.getElementById("loader").style.display = "block";
     document.getElementById("slides").style.display = "none";
 
-    let options = { includeArabicVerse: true, language: 'bengali'};
+    let options = { includeArabicVerse: true, language: 'english'};
     let showArabicObj = await chrome.storage.sync.get(["showArabic"]);
     let languageObj = await chrome.storage.sync.get(["language"]);
 
@@ -32,12 +42,16 @@ async function displayRandomVerses() {
     });
 }
 
-displayRandomVerses();
+function setPopupWidth(defaultWidth = 600) {
+    chrome.storage.sync.get('popupWidth', (data) => {
+        let width = data.popupWidth;
 
-let btnNextQuotes = document.getElementById("next-quotes");
-btnNextQuotes.addEventListener("click", () => {
-    currentSlide(1);
-    displayRandomVerses();
-});
+        if (typeof width === 'undefined') {
+            width = defaultWidth;
+        }
+
+        document.getElementById("wrapper").style.width = width + 'px';
+    })
+}
 
 

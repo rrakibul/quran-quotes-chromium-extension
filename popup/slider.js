@@ -26,11 +26,13 @@ function showSlides(n) {
 }
 
 const btnPrev = document.getElementById("prev");
+
 btnPrev.addEventListener("click", () => {
     plusSlides(-1);
 });
 
 const btnNext = document.getElementById("next");
+
 btnNext.addEventListener("click", () => {
     plusSlides(1);
 });

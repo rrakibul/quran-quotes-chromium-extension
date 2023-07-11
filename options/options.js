@@ -1,35 +1,52 @@
-// Saves options to chrome.storage
 const saveOptions = () => {
     const language = document.getElementById('language').value;
     const showArabic = document.getElementById('showArabicVerse').checked;
-    const newTabPage = document.getElementById('newTabPage').checked;
+    let popupWidth = document.getElementById('popupWidth').value;
 
-    chrome.storage.sync.set({ language: language, showArabic: showArabic, newTabPage: newTabPage },
+    if (popupWidth > 800 || popupWidth < 500) {
+        showMessage('Allowed popup width within (500-800)px', 'error');
+        return false;
+    }
+
+    chrome.storage.sync.set({ language: language, showArabic: showArabic, popupWidth: popupWidth },
         () => {
-            // Update status to let user know options were saved.
-            const status = document.getElementById('status');
-            status.textContent = 'Options saved.';
-            setTimeout(() => {
-                status.textContent = '';
-            }, 750);
-
-            chrome.runtime.sendMessage({ 'action': 'optionUpdated' });
+            showMessage('Options saved');
         }
     );
 };
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { language: 'bengali', showArabic: true, newTabPage: false },
+        { language: 'bengali', showArabic: true, popupWidth: '600' },
         (items) => {
             document.getElementById('language').value = items.language;
             document.getElementById('showArabicVerse').checked = items.showArabic;
-            document.getElementById('newTabPage').checked = items.newTabPage;
+            document.getElementById('popupWidth').value = items.popupWidth;
         }
     );
 };
+
+const showMessage = (message, type = 'success') => {
+    const status = document.getElementById('status');
+    status.style.color = getMessageColor(type);
+    status.textContent = message;
+    if (type === 'success') {
+        setTimeout(() => {
+            status.textContent = '';
+        }, 750);
+    }
+}
+
+const getMessageColor = (type) => {
+    switch (type) {
+        case 'error':
+            return  'red';
+        case 'success':
+            return  'green';
+        default:
+            return  'black';
+    }
+}
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);

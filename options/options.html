@@ -2,37 +2,41 @@
 <html>
 <head>
     <title>Al-Quran Quotes Extension Options</title>
+    <link rel="stylesheet" href="options.css">
 </head>
 <body>
-<select id="language">
-    <option value="bengali">Bengali</option>
-    <option value="chinese-simplified">Chinese (simplified)</option>
-    <option value="chinese-traditional">Chinese (traditional)</option>
-    <option value="english">English</option>
-    <option value="french">French</option>
-    <option value="german">German</option>
-    <option value="hebrew">Hebrew</option>
-    <option value="hindi">Hindi</option>
-    <option value="italian">Italian</option>
-    <option value="japanese">Japanese</option>
-    <option value="malayalam">Malayalam</option>
-    <option value="russian">Russian</option>
-    <option value="turkish">Turkish</option>
-    <option value="urdu">Urdu</option>
-</select>
-
-<label>
-    <input type="checkbox" id="showArabicVerse" />
-    Show arabic verses as well
-</label>
-
-<label>
-    <input type="checkbox" id="newTabPage" /> Use default new tab page
-</label>
-
 <div id="status"></div>
-<button id="save">Save</button>
-
+<table>
+    <tr>
+        <td>Language <select id="language">
+            <option value="bengali">Bengali</option>
+            <option value="chinese-simplified">Chinese (simplified)</option>
+            <option value="chinese-traditional">Chinese (traditional)</option>
+            <option value="english" selected>English</option>
+            <option value="french">French</option>
+            <option value="german">German</option>
+            <option value="hebrew">Hebrew</option>
+            <option value="hindi">Hindi</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="malayalam">Malayalam</option>
+            <option value="russian">Russian</option>
+            <option value="turkish">Turkish</option>
+            <option value="urdu">Urdu</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Popup Width (500-800) <input id="popupWidth" type="number" min="500" max="800" step="25" value="600" /> px</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" id="showArabicVerse" /> Show arabic verses as well</td>
+    </tr>
+    <tr>
+        <td>
+            <button id="save">Save</button>
+        </td>
+    </tr>
+</table>
 <script src="options.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ const saveOptions = () => {
     const showArabic = document.getElementById('showArabicVerse').checked;
     let popupWidth = document.getElementById('popupWidth').value - 20;
 
-    if (popupWidth > 800 || popupWidth < 500) {
+    if (popupWidth > 780 || popupWidth < 480) {
         showMessage('Allowed popup width within (500-800)px', 'error');
         return false;
     }

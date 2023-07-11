@@ -1,7 +1,7 @@
 const saveOptions = () => {
     const language = document.getElementById('language').value;
     const showArabic = document.getElementById('showArabicVerse').checked;
-    let popupWidth = document.getElementById('popupWidth').value;
+    let popupWidth = document.getElementById('popupWidth').value - 20;
 
     if (popupWidth > 800 || popupWidth < 500) {
         showMessage('Allowed popup width within (500-800)px', 'error');

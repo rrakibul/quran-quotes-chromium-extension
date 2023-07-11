@@ -15,7 +15,6 @@
     "default_title": "Random Quran Quotes"
   },
   "permissions": [
-    "activeTab",
     "storage"
   ],
   "options_ui": {

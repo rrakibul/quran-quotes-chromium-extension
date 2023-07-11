@@ -12,7 +12,7 @@ async function displayRandomVerses() {
     document.getElementById("loader").style.display = "block";
     document.getElementById("slides").style.display = "none";
 
-    let options = { includeArabicVerse: true, language: 'english'};
+    let options = { includeArabicVerse: false, language: 'english'};
     let showArabicObj = await chrome.storage.sync.get(["showArabic"]);
     let languageObj = await chrome.storage.sync.get(["language"]);
 

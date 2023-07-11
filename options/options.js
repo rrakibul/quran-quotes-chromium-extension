@@ -17,7 +17,7 @@ const saveOptions = () => {
 
 const restoreOptions = () => {
     chrome.storage.sync.get(
-        { language: 'english', showArabic: true, popupWidth: '600' },
+        { language: 'english', showArabic: false, popupWidth: '600' },
         (items) => {
             document.getElementById('language').value = items.language;
             document.getElementById('showArabicVerse').checked = items.showArabic;

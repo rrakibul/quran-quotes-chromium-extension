@@ -36,9 +36,9 @@ body {
 }
 
 .prev:hover, .next:hover {
-    background-color: red;
+    background-color: #ffc107;
     color: white;
-    opacity: 25%;
+    opacity: 70%;
     border-radius: 10px;
 }
 
@@ -96,9 +96,9 @@ q {font-style: italic;}
 }
 
 .button {
-    background-color: red;
+    background-color: #ffc107;
     border: none;
-    color: #ffffff;
+    color: #000000;
     font-weight: bold;
     padding: 10px 15px;
     text-align: center;
@@ -108,17 +108,28 @@ q {font-style: italic;}
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 20px;
-    opacity: 35%;
+    opacity: 70%;
 }
 
 .button:hover {
-    background-color: red;
-    opacity: 45%;
+    background-color: #ffc107;
+    opacity: 90%;
 }
 
-#loader {
+#loading-status {
     text-align: center;
     display: none;
+}
+
+#error-status {
+    text-align: center;
+    display: none;
+    color: red;
+    font-size: large;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 45%;
 }
 
 #next-quotes {

@@ -132,6 +132,18 @@ q {font-style: italic;}
     opacity: 45%;
 }
 
+#connectivity-status {
+    text-align: center;
+    color: red;
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 45%;
+    border-radius: 20px;
+    display: none;
+    border: 1px solid aliceblue;
+}
+
 #next-quotes {
     position: absolute;
     right: 10px;

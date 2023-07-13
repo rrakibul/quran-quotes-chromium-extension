@@ -1,10 +1,25 @@
 const btnNextQuotes = document.getElementById("next-quotes");
+const connectivityStatus = document.getElementById("connectivity-status");
 const loadingStatus = document.getElementById("loading-status");
 const errorStatus = document.getElementById("error-status");
 const slideshowWrapper = document.getElementById("slideshow-wrapper");
 
 setPopupWidth();
 displayRandomVerses();
+
+window.addEventListener('online', () => {
+    handleDisplay('online');
+
+    setTimeout(() => {
+        handleDisplay('inorder');
+        displayRandomVerses();
+    }, 1500)
+
+});
+
+window.addEventListener('offline', () => {
+    handleDisplay('offline');
+});
 
 btnNextQuotes.addEventListener("click", () => {
     currentSlide(1);
@@ -65,6 +80,21 @@ function handleDisplay(flag, message = '') {
             slideshowWrapper.style.display = "none";
             errorStatus.textContent = message;
             break;
+        case 'online':
+            connectivityStatus.style.color = 'green';
+            connectivityStatus.innerHTML = 'Back online';
+            connectivityStatus.style.display = 'block';
+            break;
+        case 'offline':
+            connectivityStatus.style.color = 'red';
+            connectivityStatus.innerHTML = 'You are offline';
+            connectivityStatus.style.display = 'block';
+            break;
+        case 'inorder':
+            connectivityStatus.innerHTML = '';
+            connectivityStatus.style.display = 'none';
+            break;
+        default:
     }
 }
 
